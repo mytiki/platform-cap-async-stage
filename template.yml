@@ -26,13 +26,13 @@ Resources:
         EventBridgeConfiguration:
           EventBridgeEnabled: true
         QueueConfigurations:
-          Event: s3:ObjectCreated:*
-          Queue: !GetAtt Queue.Arn
-          Filter:
-            S3Key:
-              Rules:
-                - Name: prefix
-                  Value: load/
+          - Event: s3:ObjectCreated:*
+            Queue: !GetAtt Queue.Arn
+            Filter:
+              S3Key:
+                Rules:
+                  - Name: prefix
+                    Value: load/
 
   QueuePolicy:
     Type: AWS::SQS::QueuePolicy
