@@ -32,7 +32,7 @@ Resources:
               S3Key:
                 Rules:
                   - Name: prefix
-                    Value: loady/
+                    Value: tmp/
 
   QueuePolicy:
     Type: AWS::SQS::QueuePolicy
