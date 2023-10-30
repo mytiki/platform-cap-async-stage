@@ -4,8 +4,8 @@ on:
   pull_request:
     branches:
       - main
-    types:
-      - closed
+#    types:
+#      - closed
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
@@ -13,7 +13,7 @@ concurrency:
 
 jobs:
   Deploy:
-    if: github.event.pull_request.merged == true && startsWith(github.head_ref, 'release/')
+    #if: github.event.pull_request.merged == true && startsWith(github.head_ref, 'release/')
     runs-on: ubuntu-latest
     environment: Production
     permissions:
@@ -46,7 +46,7 @@ jobs:
           aws-region: ${{ vars.AWS_REGION }}
 
       - name: SAM Publish
-        run: sam build && sam deploy
+        run: sam build && sam package && sam deploy
 
       - name: Get Version
         id: semver
