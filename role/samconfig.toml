@@ -1,9 +1,9 @@
 version = 0.1
 
 [default.global.parameters]
-stack_name = "publish-data-s3-role"
+stack_name = "publish-data-stage-role"
 s3_bucket = "mytiki-sam-deploy"
-s3_prefix = "publish/data/s3/role"
+s3_prefix = "publish/data/stage/role"
 region = "us-east-2"
 
 [default.deploy.parameters]
