@@ -35,6 +35,11 @@ Resources:
               - !Sub arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/publish-data-s3-stage*
           - Effect: Allow
             Action:
+              - s3:PutObject
+              - s3:GetObject
+            Resource: !Sub arn:aws:s3:::mytiki-sam-deploy/*
+          - Effect: Allow
+            Action:
               - s3:CreateBucket
               - s3:PutBucketNotification
             Resource: arn:aws:s3:::*
